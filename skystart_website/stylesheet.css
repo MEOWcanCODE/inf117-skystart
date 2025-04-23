@@ -1,0 +1,8 @@
+body{
+    font-size: 20;
+    color: blue;
+}
+
+[contentEditable=true]:empty:not(:focus):before {
+    content: attr('enter text here')
+}
