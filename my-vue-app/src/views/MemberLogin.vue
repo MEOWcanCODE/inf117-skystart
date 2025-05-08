@@ -30,10 +30,11 @@
   const router = useRouter()
   
   function login() {
-    if (email.value && password.value) {
-      alert('Member dashboard coming soon!')
-    }
+  if (email.value && password.value) {
+    router.push('/student-dashboard') // route to student dashboard
   }
+}
+
   
   function goHome() {
     router.push('/')
