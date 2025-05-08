@@ -29,9 +29,9 @@
   }
   
   function goToMemberLogin() {
-    // Placeholder – member flow not yet implemented
-    alert('Coming soon!')
-  }
+  router.push('/member-login')
+}
+
   </script>
   
   <style scoped>

@@ -6,8 +6,10 @@ import OrgDashboard from '../views/OrgDashboard.vue'
 const routes = [
   { path: '/', name: 'Home', component: HomePage },
   { path: '/login', name: 'Login', component: LoginPage },
-  { path: '/org-dashboard', name: 'OrgDashboard', component: OrgDashboard }
+  { path: '/org-dashboard', name: 'OrgDashboard', component: OrgDashboard },
+  { path: '/member-login', name: 'MemberLogin', component: () => import('../views/MemberLogin.vue') }
 ]
+
 
 const router = createRouter({
   history: createWebHistory(),
