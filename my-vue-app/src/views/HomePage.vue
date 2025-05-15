@@ -6,10 +6,10 @@
 <template>
     <div class="home-container">
       <header class="nav-bar">
-        <img src="/logo.png" alt="Skystart Logo" class="logo" />
+        <img src="/logo.png" alt="Skystart Logo" class="logo" @click="goHome"/>
         <div class="nav-links">
           <button>Our Mission</button>
-          <button>Contact</button>
+          <button @click="goToContact">Contact</button>
         </div>
       </header>
   
@@ -24,6 +24,10 @@
   import { useRouter } from 'vue-router'
   const router = useRouter()
   
+  function goToContact() {
+  router.push('/contact-us')
+  }
+
   function goToOrgLogin() {
     router.push('/login')
   }
