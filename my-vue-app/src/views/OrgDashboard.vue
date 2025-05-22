@@ -18,10 +18,3 @@
   
   <script setup>
   </script>
-  
-  <style scoped>
-  .org-dashboard {
-    padding: 2rem;
-  }
-  </style>
-  

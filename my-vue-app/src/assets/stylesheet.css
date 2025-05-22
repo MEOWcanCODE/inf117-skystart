@@ -1,4 +1,4 @@
-
+/* HOME PAGE */
 .home-container {
     background-color: #f5f5f5;
     height: 100vh;
@@ -44,3 +44,676 @@
     border-radius: 4px;
     cursor: pointer;
   }
+
+
+
+/* CONTACT US PAGE */
+
+  .home-container {
+    background-color: #f5f5f5;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .nav-bar {
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 40px;
+  }
+  
+  .nav-links button {
+    margin-left: 1rem;
+    background: none;
+    border: none;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .contact-info {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  /* LoginPage.vue */
+
+  .login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.login-box {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-box h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.login-logo {
+  height: 50px;
+  margin-bottom: 1rem;
+}
+
+.back-arrow {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.2s ease;
+  border-radius: 50%;
+  width: fit-content;
+  padding: 0.25rem 0.5rem;
+}
+
+.back-arrow:hover {
+  color: #333;
+  background-color: #eee;
+}
+
+
+
+form input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+form button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #ffcc00; /* yellow */
+  color: #000;
+  border: none;
+  font-weight: bold;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+form button:hover {
+  background-color: #ffa600; /* orange */
+}
+
+.forgot {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* MemberLogin.vue */
+
+  .login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  .login-box {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .login-box h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  form input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  
+  form button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #ffcc00;
+    color: #000;
+    border: none;
+    font-weight: bold;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  form button:hover {
+    background-color: #ffa600;
+  }
+  
+  .forgot {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .back-arrow {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.2s ease;
+    border-radius: 50%;
+    width: fit-content;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .back-arrow:hover {
+    color: #333;
+    background-color: #eee;
+  }
+  
+  .login-logo {
+    height: 50px;
+    margin-bottom: 1rem;
+  }
+  
+  /* OrgDashboard.vue */
+
+  .org-dashboard {
+    padding: 2rem;
+  }
+
+  /* StudentCourses.vue */
+.course-container {
+  background-color: #f5f5f5;
+  padding: 2rem;
+  font-family: sans-serif;
+  min-height: 100vh;
+}
+
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.nav-btn {
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-btn.blue {
+  background-color: #2196f3;
+  color: white;
+}
+
+.nav-btn.yellow {
+  background-color: #ffcc00;
+  color: black;
+}
+
+.course-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.video-placeholder {
+  height: 200px;
+  background-color: #e0e0e0;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.course-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.subtitle {
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.question-label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.question-desc {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+textarea {
+  width: 100%;
+  height: 80px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  resize: none;
+  margin-bottom: 0.75rem;
+}
+
+.submit-btn {
+  background-color: #ffcc00;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 0.25rem;
+}
+
+.course-footer {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.footer-btn {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.footer-btn.outline {
+  border: 1px solid #999;
+  background: white;
+}
+
+/* StudentDashboard.vue */
+  .dashboard-container {
+    display: flex;
+    height: 100vh;
+    font-family: sans-serif;
+  }
+  
+  .sidebar {
+    background: #fff;
+    padding: 1.5rem;
+    width: 200px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+  }
+
+  .sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .sidebar-links div {
+  cursor: pointer;
+  padding: 0.5rem 0;
+  width: 100%;
+  border-radius: 6px;
+  padding-left: 0.5rem;
+  transition: background 0.2s;
+}
+
+.sidebar-links div:hover {
+  background-color: #f0f0f0;
+}
+
+.sidebar-links .active {
+  background-color: #ffe066; /* Skystart yellow */
+  font-weight: bold;
+}
+
+
+  
+  .logo {
+    height: 35px;
+    margin-bottom: 2rem;
+  }
+  
+  .sidebar a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  
+  .sidebar a.router-link-active {
+    color: #000;
+    font-weight: bold;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 2rem;
+    background-color: #f5f5f5;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.06);
+  }
+
+  /* StudentProjectDetail.vue */
+  .project-detail-page {
+  padding: 2rem;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+.back-button {
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 1rem;
+  width: fit-content;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.06);
+}
+
+.top-card h1 {
+  margin-bottom: 0.25rem;
+  font-size: 1.6rem;
+}
+
+.description {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.access-btn {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.metrics-card {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.column {
+  flex: 1;
+  min-width: 220px;
+}
+
+.column h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  margin: 0.3rem 0;
+}
+/* StudentProjects.vue */
+
+.projects-wrapper {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #e5e5e5;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.project-card {
+  display: flex;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  align-items: flex-start;
+}
+
+.project-image {
+  width: 100px;
+  height: 100px;
+  background-color: #e0e0e0;
+  border-radius: 6px;
+  margin-right: 1rem;
+}
+
+.project-details {
+  flex: 1;
+}
+
+.project-details h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.project-details p {
+  margin: 0.25rem 0 0.75rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.progress-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.progress-label {
+  font-size: 0.85rem;
+  color: #333;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 6px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 40%;
+  height: 100%;
+  background-color: #ffcc00;
+}
+
+.view-button {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+/* StudentSettings.vue */
+
+.settings-wrapper {
+  background-color: #f5f5f5;
+  padding: 2rem;
+  font-family: sans-serif;
+  min-height: 100vh;
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+}
+
+.section-label {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.settings-grid {
+  background-color: #e5e5e5;
+  padding: 2rem;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 1.25rem;
+  column-gap: 2rem;
+  max-width: 600px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.field span {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.edit-btn {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #999;
+  background: white;
+  cursor: pointer;
+}
+
+/* Modal */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-card {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 350px;
+  max-width: 90%;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.popup-card input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.save-btn {
+  background-color: #ffe066;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}

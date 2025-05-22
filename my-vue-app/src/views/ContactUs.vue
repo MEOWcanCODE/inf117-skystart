@@ -24,43 +24,4 @@
 
   </div>
   </template>
-    
-  <style scoped>
-  .home-container {
-    background-color: #f5f5f5;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .nav-bar {
-    background-color: #ffffff;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo {
-    height: 40px;
-  }
-  
-  .nav-links button {
-    margin-left: 1rem;
-    background: none;
-    border: none;
-    font-weight: bold;
-    color: #333;
-    cursor: pointer;
-  }
-  
-  .contact-info {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-  }
-  
-  </style>
   
