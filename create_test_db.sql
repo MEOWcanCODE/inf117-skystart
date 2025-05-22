@@ -12,5 +12,5 @@ CREATE TABLE IF NOT EXISTS accounts (
 );
 
 CREATE USER 'skystart_admin'@'localhost' IDENTIFIED BY 'My$Password0';
-GRANT ALL ON geeklogin TO 'skystart_admin'@'localhost';
+GRANT ALL ON geeklogin.* TO 'skystart_admin'@'localhost';
 FLUSH PRIVILEGES;
