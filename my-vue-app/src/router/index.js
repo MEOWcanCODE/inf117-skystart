@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../views/HomePage.vue'
 import LoginPage from '../views/LoginPage.vue'
 import OrgDashboard from '../views/OrgDashboard.vue'
+import "../assets/stylesheet.css";
 
 const routes = [
   { path: '/', name: 'Home', component: HomePage },
