@@ -16,7 +16,7 @@
             <div class="progress-fill"></div>
           </div>
         </div>
-        <button class="view-button" @click="router.push('/student-project-detail')">View project</button>
+        <button class="view-button" @click="$emit('open-project', project)">View project</button>
       </div>
     </div>
   </div>
@@ -51,6 +51,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+defineEmits(['open-project'])
 const selectedProject = ref(null)
 const router = useRouter()
 </script>

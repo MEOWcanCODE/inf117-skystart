@@ -5,23 +5,6 @@
 -->
 
 <template>
-  <div v-if="showProjectModal" class="popup-overlay">
-    <div class="popup-card">
-      <button class="close-btn" @click="closeModal">×</button>
-      <h3>{{ selectedProject?.title }}</h3>
-      <p>{{ selectedProject?.description }}</p>
-      <div class="metrics-card">
-        <div class="column">
-          <h2>User Metrics</h2>
-          <div class="metric-row" v-for="(value, key) in selectedProject?.metrics" :key="key">
-            <span>{{ key }}</span>
-            <span>{{ value }}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="dashboard-container">
     <aside class="sidebar">
       <img src="/logo.png" class="logo" alt="Skystart Logo" />
@@ -46,44 +29,37 @@
       </div>
 
       <div v-else-if="currentTab === 'courses'">
-        <CoursePage />
+        <Courses />
       </div>
 
       <div v-else-if="currentTab === 'projects'">
-        <StudentProjects @open-project="openProject" />
+        <Projects />
       </div>
 
       <div v-else-if="currentTab === 'settings'">
-        <StudentSettings />
+        <Settings />
       </div>
     </main>
   </div>
 </template>
 
-<script setup>
-import { ref, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
-import CoursePage from './student/courses/CoursePage.vue'
-import StudentProjects from './student/Projects.vue'
-import StudentSettings from './student/Settings.vue'
+  
+  <script setup>
+  import Projects from './Projects.vue'
+  import Courses from './courses/CoursePage.vue'
+  import Settings from './Settings.vue'
 
-const route = useRoute()
-const currentTab = ref('dashboard')
-const showProjectModal = ref(false)
-const selectedProject = ref(null)
+  import { ref, onMounted } from 'vue'
+  import { useRoute } from 'vue-router'
+  const route = useRoute()
+  const currentTab = ref('dashboard')
 
-onMounted(() => {
-  if (route.query.tab) {
-    currentTab.value = route.query.tab
-  }
-})
+  onMounted(() => {
+    if (route.query.tab) {
+      currentTab.value = route.query.tab
+    }
+  })
 
-function openProject(project) {
-  selectedProject.value = project
-  showProjectModal.value = true
-}
 
-function closeModal() {
-  showProjectModal.value = false
-}
-</script>
+  </script>
+  

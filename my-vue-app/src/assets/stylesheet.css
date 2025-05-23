@@ -717,3 +717,112 @@ h2 {
   font-weight: bold;
   cursor: pointer;
 }
+
+/* Add to stylesheet.css if not already there */
+.course-page {
+  display: flex;
+  min-height: 100vh;
+}
+
+.stage-list {
+  width: 240px;
+  background-color: #f8f8f8;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stage-list h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.stage-list div {
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.stage-list div:hover {
+  background-color: #f0f0f0;
+}
+
+.stage-list .active {
+  background-color: #ffe066;
+  font-weight: bold;
+}
+
+.level-section {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f5f5f5;
+}
+
+.level-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.level-nav button {
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.level-nav button:disabled {
+  background-color: #eee;
+  cursor: not-allowed;
+}
+
+.stage-scroll-container {
+  width: 300px;
+  max-height: 100vh;
+  overflow-y: auto;
+  background-color: #f8f8f8;
+  padding: 1rem;
+}
+
+.stage-block {
+  margin-bottom: 2rem;
+}
+
+.stage-block h4 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.level-scroll-row {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.level-pill {
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  background-color: #e0e0e0;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 0.85rem;
+}
+
+.level-pill:hover {
+  background-color: #ddd;
+}
+
+.level-pill.active {
+  background-color: #ffe066;
+  font-weight: bold;
+}
+
+
