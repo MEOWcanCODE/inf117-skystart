@@ -4,6 +4,7 @@
 -->
 
 <template>
+  <!-- Project dashboard -->
   <div class="projects-wrapper">
     <div class="project-card" v-for="n in 3" :key="n">
       <div class="project-image"></div>
@@ -20,6 +21,8 @@
       </div>
     </div>
   </div>
+
+  <!-- Selected item for each project -->
   <div v-if="selectedProject" class="project-popup">
   <div class="popup-card">
     <button class="close-btn" @click="selectedProject = null">×</button>
