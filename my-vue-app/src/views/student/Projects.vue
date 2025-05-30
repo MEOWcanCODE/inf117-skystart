@@ -4,6 +4,7 @@
 -->
 
 <template>
+  <!-- Project dashboard -->
   <div class="projects-wrapper">
     <div class="project-card" v-for="n in 3" :key="n">
       <div class="project-image"></div>
@@ -16,10 +17,13 @@
             <div class="progress-fill"></div>
           </div>
         </div>
-        <button class="view-button" @click="$emit('open-project', project)">View project</button>
+        <button class="view-button" @click="goToProjectDetail">View project</button>
       </div>
     </div>
   </div>
+
+  <!-- Selected item for each project
+   Julie: this part probably won't show up because I redirected it to goToProjectDetail  -->
   <div v-if="selectedProject" class="project-popup">
   <div class="popup-card">
     <button class="close-btn" @click="selectedProject = null">×</button>
@@ -54,4 +58,9 @@ import { useRouter } from 'vue-router'
 defineEmits(['open-project'])
 const selectedProject = ref(null)
 const router = useRouter()
+
+function goToProjectDetail() {
+  router.push({ path: '/project-detail-page'})
+}
+
 </script>

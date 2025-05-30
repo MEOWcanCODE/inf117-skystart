@@ -44,6 +44,11 @@ const routes = [
     path: '/student-dashboard/projects/:id',
     name: 'ProjectDetail',
     component: ProjectDetail
+  },
+  {
+    path: '/project-detail-page',
+    name: 'ProjectDetail',
+    component: ProjectDetail
   }
 ]
 
