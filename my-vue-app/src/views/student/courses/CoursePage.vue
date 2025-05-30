@@ -1,48 +1,12 @@
-<!--
-  CoursePage.vue
-  Displays list of levels organized in stages on the left.
-  Renders the selected level using LevelPage.vue on the right.
--->
-
-<template>
-  <div class="course-layout">
-    <aside class="stage-column">
-      <div
-        v-for="(stageLevels, stage) in groupedLevels"
-        :key="stage"
-        class="stage-block"
-      >
-        <h4 class="stage-title">{{ stage }}</h4>
-        <div class="level-list">
-          <div
-            v-for="level in stageLevels"
-            :key="level.id"
-            class="level-item"
-            :class="{ active: currentLevel.id === level.id }"
-            @click="selectLevel(level)"
-          >
-            {{ level.title }}
-          </div>
-        </div>
-      </div>
-    </aside>
-
-    <section class="lesson-panel">
-      <div class="level-nav">
-        <button @click="goToPreviousLevel" :disabled="!hasPrevious">← Previous</button>
-        <button @click="goToNextLevel" :disabled="!hasNext">Next →</button>
-      </div>
-      <LevelPage :level="currentLevel" @next="goToNextLevel" />
-    </section>
-  </div>
-</template>
-
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import LevelPage from './LevelPage.vue'
 import { levels } from '../../../data/levelData.js'
+import { useProgressStore } from '../../../stores/progressStore'
 
+const progress = useProgressStore()
 const currentLevel = ref(levels[0])
+const selectedProject = ref('Default Project') // You can replace with actual project logic
 
 const groupedLevels = computed(() => {
   const groups = {}
@@ -82,6 +46,48 @@ const hasNext = computed(() => {
 })
 </script>
 
+<template>
+  <div class="course-layout">
+    <aside class="stage-column">
+      <div style="margin-bottom: 1rem;">
+        <label for="project-select">Project:</label>
+        <select id="project-select" v-model="selectedProject">
+          <option>Default Project</option>
+          <option>Project A</option>
+          <option>Project B</option>
+        </select>
+      </div>
+      <div
+        v-for="(stageLevels, stage) in groupedLevels"
+        :key="stage"
+        class="stage-block"
+      >
+        <h4 class="stage-title">{{ stage }}</h4>
+        <div class="level-list">
+          <div
+            v-for="level in stageLevels"
+            :key="level.id"
+            class="level-item"
+            :class="{ active: currentLevel.id === level.id }"
+            @click="selectLevel(level)"
+          >
+            {{ level.title }}
+            <span v-if="progress.completedLevels.has(level.id)">✅</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <section class="lesson-panel">
+      <div class="level-nav">
+        <button @click="goToPreviousLevel" :disabled="!hasPrevious">← Previous</button>
+        <button @click="goToNextLevel" :disabled="!hasNext">Next →</button>
+      </div>
+      <LevelPage :level="currentLevel" @next="goToNextLevel" />
+    </section>
+  </div>
+</template>
+
 <style scoped>
 .course-layout {
   display: flex;
@@ -94,6 +100,15 @@ const hasNext = computed(() => {
   padding: 1rem;
   overflow-y: auto;
   border-right: 1px solid #ddd;
+}
+
+.project-dropdown {
+  margin-bottom: 1rem;
+}
+
+.project-dropdown label {
+  font-weight: bold;
+  margin-right: 0.5rem;
 }
 
 .stage-block {
@@ -119,6 +134,9 @@ const hasNext = computed(() => {
   cursor: pointer;
   transition: background-color 0.2s;
   font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .level-item:hover {

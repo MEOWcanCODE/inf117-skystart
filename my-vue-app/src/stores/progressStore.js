@@ -13,10 +13,16 @@ export const useProgressStore = defineStore('progress', () => {
     answers.value[id] = text
   }
 
+  function getProgress() {
+    const totalLevels = 11
+    return Math.round((completedLevels.value.size / totalLevels) * 100)
+  }
+
   return {
     completedLevels,
     answers,
     markCompleted,
-    saveAnswer
+    saveAnswer,
+    getProgress
   }
 })
