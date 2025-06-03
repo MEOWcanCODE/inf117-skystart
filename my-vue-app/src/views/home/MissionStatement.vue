@@ -1,7 +1,8 @@
+<!-- Mission Statement -->
 
 <template>
   <div class="home-container">
-    <div class="contact-us">
+    <div class="mission-statement">
       <header class="nav-bar">
         <img src="/logo.png" alt="Skystart Logo" class="logo" />
         <div class="nav-links">
@@ -10,8 +11,8 @@
         </div>
       </header>
 
-      <main class="contact-info">
-        <h2>Contact SkyStart</h2>
+      <main>
+        <h2>Mission Statement</h2>
 
         <form @submit.prevent="handleSubmit" class="contact-form">
           <div class="form-group">
