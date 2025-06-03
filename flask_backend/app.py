@@ -43,7 +43,7 @@ def login():
         password = request.form["password"]
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute(
-            "SELECT * FROM accounts WHERE username = %s AND password = %s",
+            "SELECT * FROM users WHERE username = %s AND password = %s",
             (username, password),
         )
         account = cursor.fetchone()
@@ -88,6 +88,8 @@ def register():
     msg = ""
     if (
         request.method == "POST"
+        and "name" in request.form
+        and "type" in request.form
         and "username" in request.form
         and "password" in request.form
         and "email" in request.form
@@ -95,8 +97,10 @@ def register():
         username = request.form["username"]
         password = request.form["password"]
         email = request.form["email"]
+        name = request.form["name"]
+        user_type = request.form["type"]
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute("SELECT * FROM accounts WHERE username = %s", (username,))
+        cursor.execute("SELECT * FROM users WHERE username = %s", (username,))
         account = cursor.fetchone()
         if account:
             msg = "Account already exists!"
@@ -108,8 +112,8 @@ def register():
             msg = "Please fill out the form!"
         else:
             cursor.execute(
-                "INSERT INTO accounts VALUES (NULL, %s, %s, %s)",
-                (username, password, email),
+                "INSERT INTO users VALUES (%s, %s, %s, %s, %s)",
+                (user_type, name, username, password, email),
             )
             mysql.connection.commit()
             msg = "You have successfully registered!"
@@ -178,7 +182,7 @@ def student_dashboard():
     total_revenue = cursor.fetchone()
 
     cursor.execute(
-        f"SELECT username FROM accounts WHERE id = (Select mentor_id FROM mentor_assignment where student_id = {session["id"]} limit 1);"
+        f"SELECT username FROM users WHERE id = (Select mentor_id FROM mentor_assignment where student_id = {session["id"]} limit 1);"
     )
     mentor = cursor.fetchone()
 
