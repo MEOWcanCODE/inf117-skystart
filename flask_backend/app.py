@@ -144,6 +144,7 @@ def course(course_id):
         check = cursor.fetchone()
         if check:
             print("Change saved!")
+        return redirect(url_for("course", course_id=course_id))
 
     cursor.execute(f"select name, description from courses where id = {course_id};")
     course_info = cursor.fetchone()
@@ -182,7 +183,7 @@ def student_dashboard():
     total_revenue = cursor.fetchone()
 
     cursor.execute(
-        f"SELECT username FROM users WHERE id = (Select mentor_id FROM mentor_assignment where student_id = {session["id"]} limit 1);"
+        f"SELECT name, email FROM users WHERE id = (Select mentor_id FROM mentor_assignment where student_id = {session["id"]} limit 1);"
     )
     mentor = cursor.fetchone()
 
@@ -208,7 +209,7 @@ def student_dashboard():
 
     dashboard_content = dict()
     dashboard_content["total_revenue"] = total_revenue["SUM(amount)"]
-    dashboard_content["mentor"] = mentor["username"]
+    dashboard_content["mentor"] = (mentor["name"], mentor["email"])
     dashboard_content["courses"] = [(x["id"], x["name"]) for x in courses]
     dashboard_content["progress"] = (
         f"{answered_input["count(*)"] / all_inputs["count(*)"] * 100 :.2f}%"
