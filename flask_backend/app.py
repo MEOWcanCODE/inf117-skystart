@@ -160,5 +160,51 @@ def course():
     return render_template("course.html", questions=questions, msg=msg)
 
 
+@app.route("/student_dashboard", methods=["GET"])
+def student_dashboard():
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute(
+        f"SELECT SUM(amount) FROM financial WHERE project_id = (SELECT project_id FROM project_owners WHERE user_id = {session["id"]} limit 1);"
+    )
+    total_revenue = cursor.fetchone()
+
+    cursor.execute(
+        f"SELECT username FROM accounts WHERE id = (Select mentor_id FROM mentor_assignment where student_id = {session["id"]} limit 1);"
+    )
+    mentor = cursor.fetchone()
+
+    cursor.execute(
+        f"Select name from courses c left join student_in_course s on c.id = s.course_id where s.student_id = {session["id"]};"
+    )
+    courses = cursor.fetchall()
+
+    cursor.execute(
+        f"Select count(*) from course_input where student_id = {session["id"]};"
+    )
+    all_inputs = cursor.fetchone()
+
+    cursor.execute(
+        f"Select count(*) from course_input where student_id = {session["id"]} and input is not null;"
+    )
+    answered_input = cursor.fetchone()
+
+    print(total_revenue)
+    print(mentor)
+    print(courses)
+    print(all_inputs, answered_input)
+
+    dashboard_content = dict()
+    dashboard_content["total_revenue"] = total_revenue["SUM(amount)"]
+    dashboard_content["mentor"] = mentor["username"]
+    dashboard_content["courses"] = "\n".join([x["name"] for x in courses])
+    dashboard_content["progress"] = (
+        f"{answered_input["count(*)"] / all_inputs["count(*)"] * 100 :.2f}%"
+    )
+
+    return render_template(
+        "student_dashboard.html", dashboard_content=dashboard_content
+    )
+
+
 if __name__ == "__main__":
     app.run(debug=True)
