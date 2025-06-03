@@ -11,7 +11,7 @@ app.secret_key = "your_secret_key"
 app.config["MYSQL_HOST"] = "localhost"
 app.config["MYSQL_USER"] = "skystart_admin"
 app.config["MYSQL_PASSWORD"] = "My$Password0"  # Enter your MySql password
-app.config["MYSQL_DB"] = "geeklogin"
+app.config["MYSQL_DB"] = "skystart"
 
 mysql = MySQL(app)
 
