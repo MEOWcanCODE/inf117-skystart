@@ -1,11 +1,12 @@
+
 <template>
   <div class="home-container">
     <div class="contact-us">
       <header class="nav-bar">
         <img src="/logo.png" alt="Skystart Logo" class="logo" />
         <div class="nav-links">
-          <button>Our Mission</button>
-          <button>Contact</button>
+          <button @click="goToMissionStatement">Our Mission</button>  
+          <button @click="goToContact">Contact</button>
         </div>
       </header>
 
@@ -73,6 +74,14 @@ const form = reactive({
   email: '',
   message: ''
 })
+
+  function goToContact() {
+  router.push('/contact-us')
+  }
+
+  function goToMissionStatement(){
+    router.push('/mission-statement')
+  }
 
 function handleSubmit() {
   alert(`Thank you, ${form.firstName}! Your message has been sent.`)

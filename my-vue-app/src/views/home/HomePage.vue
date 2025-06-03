@@ -8,7 +8,7 @@
       <header class="nav-bar">
         <img src="/logo.png" alt="Skystart Logo" class="logo" @click="goHome"/>
         <div class="nav-links">
-          <button>Our Mission</button>  
+          <button @click="goToMissionStatement">Our Mission</button>  
           <button @click="goToContact">Contact</button>
         </div>
       </header>
@@ -27,6 +27,10 @@
   
   function goToContact() {
   router.push('/contact-us')
+  }
+
+  function goToMissionStatement(){
+    router.push('/mission-statement')
   }
 
   function goToOrgLogin() {
