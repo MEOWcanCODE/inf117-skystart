@@ -13,13 +13,14 @@
     <div class="header">
         <h1 class="word"> {{ session.course_name }} </h1>
         <p class="word"> {{ session.course_description }}</p>
+        <a href="{{ url_for("student_dashboard") }}"> Back to Dashboard </a>
     </div>
     
     <div class="body">
         <ul>
             {% for question in questions %}
             <li>
-                <form method='POST' action="{{ url_for('course') }}" id="{{ question.id }}"> 
+                <form method='POST' action="{{ url_for('course', course_id = session.course_id) }}" id="{{ question.id }}"> 
                     {{ question.csrf_token }}
                     <p>{{ question.prompt }}</p>
                     <input type="hidden" name="question_id" value="{{ question.id }}">

@@ -16,13 +16,23 @@
     
     <div class="body">
         <h3>Total Revenue</h3>
-        <p> {{dashboard_content["total_revenue"]}} <p> 
+        <p> ${{dashboard_content["total_revenue"]}} <p> 
         <h3>Mentor Assignment</h3>
-        <p> {{dashboard_content["mentor"]}} <p> 
+        <p> Email: {{dashboard_content["mentor"]}} <p> 
         <h3>Courses</h3>
-        <p> {{dashboard_content["courses"]}} <p> 
+        <ul>
+            {% for course_info in dashboard_content["courses"] %}
+            <li>
+                <a href="{{ url_for("course", course_id = course_info[0]) }}"> {{course_info[1]}} </a>
+            </li>
+            {% endfor %}
+        </ul>
         <h3>Progress</h3>
         <p> {{dashboard_content["progress"]}} <p> 
+    </div>
+    
+    <div class="border">
+        <a class="btn" href="{{ url_for('logout') }}">Logout</a>
     </div>
 
 </body>

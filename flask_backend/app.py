@@ -116,10 +116,11 @@ def register():
     return render_template("register.html", msg=msg)
 
 
-@app.route("/course", methods=["GET", "POST"])
-def course():
+@app.route("/course/<course_id>", methods=["GET", "POST"])
+def course(course_id):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    print(request.method)
+    session["course_id"] = course_id
+    print(course_id, request.method)
     if request.method == "POST":
         print("REQUEST:")
         print(
@@ -140,6 +141,11 @@ def course():
         if check:
             print("Change saved!")
 
+    cursor.execute(f"select name, description from courses where id = {course_id};")
+    course_info = cursor.fetchone()
+    session["course_name"] = course_info["name"]
+    session["course_description"] = course_info["description"]
+
     cursor.execute(
         f"SELECT * FROM course_input WHERE course_id = {session["course_id"]} AND student_id = {session["id"]};"
     )
@@ -154,7 +160,10 @@ def course():
         prompts_added += 1
         questions.append(CreateInputForm(i["input_id"], i["intput_type"], i["input"]))
 
-    msg = f"Progress: {prompts_answered / prompts_added * 100 :.2f}%"
+    if not prompts_added:
+        msg = f"Progress: 100%"
+    else:
+        msg = f"Progress: {prompts_answered / prompts_added * 100 :.2f}%"
     print(msg)
 
     return render_template("course.html", questions=questions, msg=msg)
@@ -174,7 +183,7 @@ def student_dashboard():
     mentor = cursor.fetchone()
 
     cursor.execute(
-        f"Select name from courses c left join student_in_course s on c.id = s.course_id where s.student_id = {session["id"]};"
+        f"Select c.id, name from courses c left join student_in_course s on c.id = s.course_id where s.student_id = {session["id"]};"
     )
     courses = cursor.fetchall()
 
@@ -196,7 +205,7 @@ def student_dashboard():
     dashboard_content = dict()
     dashboard_content["total_revenue"] = total_revenue["SUM(amount)"]
     dashboard_content["mentor"] = mentor["username"]
-    dashboard_content["courses"] = "\n".join([x["name"] for x in courses])
+    dashboard_content["courses"] = [(x["id"], x["name"]) for x in courses]
     dashboard_content["progress"] = (
         f"{answered_input["count(*)"] / all_inputs["count(*)"] * 100 :.2f}%"
     )
