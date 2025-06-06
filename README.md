@@ -3,7 +3,7 @@
 - Frontend: Dani Al Yunis, Kaitlynne Lew, Minh Anh Bui (Julie)
 - Backend: Mew Rojkanok
 - Database: Mew Rojkanok
-## Set up MySQL databsse for backend
+## Set up MySQL database for backend
 - easiest way to do this is to copy paste and run the files in MySQL Workbench
 ### 1. Create database: create_test_db.sql
 ### 2. Add test data: backend_test_data.sql
