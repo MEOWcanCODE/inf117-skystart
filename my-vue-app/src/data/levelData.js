@@ -59,27 +59,34 @@ Remember, this journey is about exploring and learning. Let’s get started!`, /
     questionDescription: 'What is your chosen business name after considering the tools and checking availability?',
     hint: 'Enter the final name you\'ve decided on. e.g., "SkyStart Innovations"'
   },
-  {
-    id: 'identity-1',
-    stage: 'Identity',
-    title: 'Logo Basics',
-    subtitle: 'Visual Branding',
-    description: 'Learn the role of logos in branding.',
-    questionLabel: 'Apply It',
-    questionDescription: 'Describe a logo you like and why.',
-    hint: 'Think about color, simplicity, meaning.'
-  },
-  {
-    id: 'identity-2',
-    stage: 'Identity',
-    title: 'Choosing Colors',
-    subtitle: 'Color Psychology',
-    description: 'Pick brand colors that reflect your values.',
-    questionLabel: 'Practice',
-    questionDescription: 'Pick 2 colors and explain them.',
-    hint: 'Use emotion and tone.'
-  },
-  {
+ // Add this new object to your 'levels' array in src/data/levelData.js
+// In src/data/levelData.js
+{
+  id: 'setup-1',
+  stage: 'Setup',
+  title: 'Meet Your Collaborators',
+  levelType: 'credentials', // Special type to render our table
+  subtitle: 'Setting Up Your Key Tools: ChatGPT and Canva',
+  description: `<p>In this entrepreneurial journey, ChatGPT will be your go-to collaborator. Think of it as a dynamic, Artificial Intelligence-powered partner that's ready to assist you at every turn. Here's how ChatGPT can play a pivotal role in shaping your business:</p>
+<ul>
+  <li><strong>Idea Generation:</strong> Stuck for ideas? ChatGPT is a brainstorming powerhouse. Ask it for business ideas, innovative solutions, or unique angles to approach common problems.</li>
+  <li><strong>Expanding Concepts:</strong> If you have a seed of an idea, ChatGPT can help it grow. It can offer ways to enhance your concept, suggest different perspectives, or add layers to your initial thought.</li>
+  <li><strong>Problem-Solving:</strong> Encountering challenges? ChatGPT can provide creative problem-solving techniques, offer advice based on similar cases, or guide you through complex decisions.</li>
+  <li><strong>Research and Information:</strong> Need quick info or insights? ChatGPT can fetch relevant data, share industry trends, and provide background information to inform your decisions.</li>
+  <li><strong>Creative Collaboration:</strong> Use ChatGPT to refine your marketing strategies, design product features, or even craft compelling narratives for your brand.</li>
+</ul>
+<p><em>Remember, the more specific your questions and requests, the more tailored ChatGPT's assistance will be. So don't hold back – ask, explore, and let ChatGPT help you navigate through the thrilling process of building your startup. Treat ChatGPT as your conversational partner, it works better if you continue the conversation with your GPT.</em></p>
+<hr style="border: 0; border-top: 1px solid #eee; margin: 1em 0;">
+<p>Canva is an intuitive online design tool that we will be using in this workshop to create compelling logos and visual elements, helping you bring your business ideas to life.</p>
+`,
+  // No question fields needed, as the interaction is the custom table.
+  questionLabel: '',
+  questionDescription: '',
+  hint: '',
+  requiresInput: false // Input is handled by the custom 'credentials' type
+},
+
+{
     id: 'product-1',
     stage: 'Product',
     title: 'Prototypes',
